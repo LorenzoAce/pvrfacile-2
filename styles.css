@@ -8,7 +8,7 @@
   --black: #000000;
   --white: #ffffff;
 
-  --container: 1120px;
+  --container: 1400px;
   --radius-lg: 18px;
   --radius-md: 14px;
   --radius-sm: 12px;
@@ -345,12 +345,158 @@ a {
   width: 100%;
 }
 
+.cookie-banner {
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  z-index: 80;
+  margin: 0 auto;
+  max-width: 1040px;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--surface) 86%, transparent);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(14px);
+}
+
+.cookie-banner__inner {
+  padding: 14px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: center;
+}
+
+.cookie-banner__title {
+  font-weight: 900;
+  letter-spacing: -0.2px;
+}
+
+.cookie-banner__text {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.cookie-banner__actions {
+  display: inline-flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.cookie-banner__link {
+  color: var(--muted);
+  font-weight: 800;
+  font-size: 13px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  white-space: nowrap;
+}
+
+.cookie-banner__actions .cookie-banner__link {
+  align-self: center;
+}
+
+@media (max-width: 760px) {
+  .cookie-banner__inner {
+    grid-template-columns: 1fr;
+  }
+  .cookie-banner__actions {
+    justify-content: flex-start;
+  }
+}
+
 .link {
   color: rgba(158, 255, 31, 0.9);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
+.whatsapp-fab {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--green-400), var(--green-500));
+  color: var(--white);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 16px 40px rgba(145, 227, 38, 0.3);
+  z-index: 90;
+  border: 1px solid rgba(145, 227, 38, 0.35);
+  transition: transform 160ms ease, box-shadow 160ms ease, opacity 160ms ease;
+}
+
+.whatsapp-fab:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 52px rgba(145, 227, 38, 0.38);
+}
+
+.whatsapp-fab:active {
+  transform: translateY(0);
+}
+
+.whatsapp-fab svg {
+  width: 30px;
+  height: 30px;
+  transform-origin: center;
+  animation: heartbeat 1.6s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  18% {
+    transform: scale(1.18);
+  }
+  36% {
+    transform: scale(1);
+  }
+  54% {
+    transform: scale(1.18);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.whatsapp-fab::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: 0 0 0 0 rgba(145, 227, 38, 0.35);
+  animation: heartbeat-ring 1.6s ease-out infinite;
+}
+
+@keyframes heartbeat-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(145, 227, 38, 0.35);
+  }
+  100% {
+    box-shadow: 0 0 0 14px rgba(145, 227, 38, 0);
+  }
+}
+
+@media (max-width: 760px) {
+  .whatsapp-fab {
+    right: 14px;
+    bottom: 14px;
+    width: 52px;
+    height: 52px;
+  }
+  .whatsapp-fab svg {
+    width: 26px;
+    height: 26px;
+  }
+}
 .hero {
   position: relative;
   padding: 74px 0 34px 0;
@@ -378,6 +524,64 @@ a {
   border: 1px solid var(--line);
   color: var(--muted);
   font-size: 13px;
+}
+
+.pill--logos {
+  padding: 15px 18px;
+  border-radius: 14px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.78));
+  border-color: rgba(11, 18, 32, 0.12);
+}
+
+.pill__logos {
+  display: inline-flex;
+  align-items: center;
+  gap: 21px;
+  position: relative;
+  z-index: 1;
+}
+
+.pill__logo {
+  height: 28px;
+  width: auto;
+  display: block;
+  opacity: 0.95;
+}
+
+.pill--logos::before {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  background:
+    radial-gradient(320px 160px at 18% 50%, rgba(145, 227, 38, 0.18), transparent 60%),
+    radial-gradient(280px 140px at 82% 50%, rgba(235, 29, 39, 0.22), transparent 60%);
+  filter: blur(10px);
+  opacity: 0.55;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.pill__logo--gioca {
+  height: 25px;
+}
+
+.pill__logo--dark {
+  display: none;
+}
+
+:root[data-theme="dark"] .pill__logo--dark {
+  display: block;
+}
+
+:root[data-theme="dark"] .pill__logo--light {
+  display: none;
+}
+
+:root[data-theme="dark"] .pill__logo--mono {
+  filter: none;
+  opacity: 0.95;
 }
 
 .pill__dot {
@@ -493,7 +697,7 @@ a {
   position: relative;
   display: grid;
   place-items: center;
-  min-height: 420px;
+  min-height: 520px;
 }
 
 .glow {
@@ -508,8 +712,8 @@ a {
 
 .mockup {
   position: relative;
-  width: min(480px, 100%);
-  border-radius: 22px;
+  width: min(1080px, 100%);
+  border-radius: 14px;
   border: 1px solid var(--line);
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.06));
   box-shadow: var(--shadow-soft);
@@ -562,6 +766,76 @@ a {
 
 .mockup__body {
   padding: 16px;
+}
+
+.mockup__media {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--card);
+}
+
+.mockup__controls {
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.mockup__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/15;
+  object-fit: contain;
+  background: rgba(255, 255, 255, 0.6);
+  transition: opacity 220ms ease;
+}
+
+.mockup__img.is-fading {
+  opacity: 0;
+}
+
+.mockup__arrow {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--surface) 84%, transparent);
+  color: var(--text);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.14);
+  backdrop-filter: blur(10px);
+  transition: transform 160ms ease, background 160ms ease, opacity 160ms ease;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.mockup__arrow:hover {
+  transform: scale(1.04);
+  background: color-mix(in srgb, var(--surface) 92%, transparent);
+}
+
+.mockup__arrow:active {
+  transform: scale(0.98);
+}
+
+.mockup__arrow:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.mockup__arrow svg {
+  width: 18px;
+  height: 18px;
+}
+
+.mockup__arrow--prev,
+.mockup__arrow--next {
+  position: static;
 }
 
 .mockup__kpi {
@@ -690,6 +964,67 @@ a {
   margin: 10px 0 0 0;
   color: var(--muted);
   font-size: 16px;
+}
+
+.legal {
+  padding: 62px 0 72px 0;
+}
+
+.legal__container {
+  max-width: 900px;
+}
+
+.legal__head {
+  padding: 22px;
+  border-radius: 22px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  box-shadow: var(--shadow-card);
+}
+
+.legal__title {
+  margin: 0;
+  font-size: clamp(30px, 3vw, 44px);
+  line-height: 1.1;
+  letter-spacing: -0.6px;
+}
+
+.legal__subtitle {
+  margin: 12px 0 0 0;
+  color: var(--muted);
+}
+
+.legal__section {
+  margin-top: 14px;
+  padding: 20px;
+  border-radius: 22px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  box-shadow: var(--shadow-card);
+}
+
+.legal__h2 {
+  margin: 0;
+  font-size: 18px;
+  letter-spacing: -0.2px;
+}
+
+.legal__p {
+  margin: 10px 0 0 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.legal__list {
+  margin: 10px 0 0 0;
+  padding-left: 18px;
+  color: var(--muted);
+  display: grid;
+  gap: 8px;
+}
+
+.legal__cta {
+  margin-top: 16px;
 }
 
 .grid-4 {
@@ -1161,7 +1496,7 @@ a {
 .footer__grid {
   padding: 44px 0;
   display: grid;
-  grid-template-columns: 1.1fr 0.55fr 1fr;
+  grid-template-columns: 1.1fr 0.6fr 0.6fr;
   gap: 18px;
 }
 
@@ -1197,6 +1532,39 @@ a {
   width: fit-content;
 }
 
+.footer__social {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.social-link {
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--text);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 160ms ease, background 160ms ease;
+}
+
+.social-link:hover {
+  transform: translateY(-1px);
+  background: var(--surface-2);
+}
+
+.social-link:active {
+  transform: translateY(0);
+}
+
+.social-link svg {
+  width: 18px;
+  height: 18px;
+}
+
 .footer__small {
   margin: 0;
   color: var(--muted-2);
@@ -1211,7 +1579,7 @@ a {
 
 .footer__bottom-inner {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   gap: 10px;
   color: var(--muted-2);
@@ -1255,6 +1623,15 @@ a {
   }
   .hero__visual {
     min-height: 380px;
+  }
+  .pill__logos {
+    gap: 18px;
+  }
+  .pill__logo {
+    height: 25px;
+  }
+  .pill__logo--gioca {
+    height: 22px;
   }
   .grid-4 {
     grid-template-columns: repeat(2, 1fr);

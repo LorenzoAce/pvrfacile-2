@@ -77,9 +77,38 @@
       <section class="hero" id="top" aria-label="Sezione principale">
         <div class="container hero__grid">
           <div class="hero__copy reveal">
-            <div class="pill">
-              <span class="pill__dot" aria-hidden="true"></span>
-              Partner ufficiali per servizi gaming e digitali
+            <div class="pill pill--logos" aria-label="Loghi istituzionali">
+              <div class="pill__logos" aria-label="Partner e iniziative">
+                <img
+                  class="pill__logo pill__logo--mono"
+                  src="./institutional/adm-logo.png"
+                  alt="ADM"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <img
+                  class="pill__logo pill__logo--mono"
+                  src="./institutional/adm-timone-logo.png"
+                  alt="ADM - Timone"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <img
+                  class="pill__logo pill__logo--gioca pill__logo--light"
+                  src="./institutional/gioca-responsabilmente-logo.png"
+                  alt="Gioca responsabilmente"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <img
+                  class="pill__logo pill__logo--gioca pill__logo--dark"
+                  src="./institutional/gioca-responsabilmente-bianco-logo.png"
+                  alt=""
+                  aria-hidden="true"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
             </div>
             <h1 class="hero__title">Trasforma il tuo negozio in un centro servizi completo</h1>
             <p class="hero__subtitle">
@@ -109,66 +138,40 @@
           </div>
           <div class="hero__visual reveal">
             <div class="mockup" role="img" aria-label="Mockup di punto vendita moderno con servizi attivi">
-              <div class="mockup__top">
-                <div class="mockup__dots" aria-hidden="true">
-                  <span></span><span></span><span></span>
-                </div>
-                <div class="mockup__title">Dashboard punto vendita</div>
-              </div>
               <div class="mockup__body">
-                <div class="mockup__kpi">
-                  <div class="kpi kpi--green">
-                    <div class="kpi__label">Nuovi clienti</div>
-                    <div class="kpi__value">+23%</div>
-                  </div>
-                  <div class="kpi kpi--red">
-                    <div class="kpi__label">Servizi attivi</div>
-                    <div class="kpi__value">12</div>
-                  </div>
+                <div class="mockup__media" aria-label="Immagine del punto vendita moderno">
+                  <img
+                    class="mockup__img"
+                    data-mockup-img
+                    src="./grafiche/a4-grafica-pubblicita.png"
+                    alt="Grafica pubblicitaria servizi per il punto vendita"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
-                <div class="mockup__cards">
-                  <div class="mini-card">
-                    <div class="mini-card__icon" aria-hidden="true">
-                      <svg viewBox="0 0 24 24" fill="none">
-                        <path
-                          d="M7 8h10a3 3 0 0 1 3 3v3a3 3 0 0 1-3 3H12l-3 3v-3H7a3 3 0 0 1-3-3v-3a3 3 0 0 1 3-3Z"
-                          stroke="currentColor"
-                          stroke-width="1.8"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                      </svg>
-                    </div>
-                    <div class="mini-card__text">
-                      <div class="mini-card__title">Assistenza rapida</div>
-                      <div class="mini-card__sub">Consulente dedicato</div>
-                    </div>
-                  </div>
-                  <div class="mini-card">
-                    <div class="mini-card__icon" aria-hidden="true">
-                      <svg viewBox="0 0 24 24" fill="none">
-                        <path
-                          d="M12 3v18M5 8l7-5 7 5M5 16l7 5 7-5"
-                          stroke="currentColor"
-                          stroke-width="1.8"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                      </svg>
-                    </div>
-                    <div class="mini-card__text">
-                      <div class="mini-card__title">Attivazione veloce</div>
-                      <div class="mini-card__sub">Step guidati</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="mockup__list" aria-label="Esempi di servizi">
-                  <div class="chip">Ricariche</div>
-                  <div class="chip">pagoPA</div>
-                  <div class="chip">F24</div>
-                  <div class="chip">Gift Card</div>
-                  <div class="chip">SPID</div>
-                  <div class="chip">POS</div>
+                <div class="mockup__controls" aria-label="Controlli grafica">
+                  <button class="mockup__arrow" type="button" data-mockup-prev aria-label="Grafica precedente">
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path
+                        d="M14.5 5.5 8 12l6.5 6.5"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </button>
+                  <button class="mockup__arrow" type="button" data-mockup-next aria-label="Grafica successiva">
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path
+                        d="M9.5 5.5 16 12l-6.5 6.5"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </button>
                 </div>
               </div>
             </div>
@@ -520,7 +523,7 @@
                 <label class="field field--checkbox">
                   <input class="field__checkbox" type="checkbox" name="privacy" required />
                   <span class="field__label">
-                    Ho letto e accetto la <a class="link" href="#privacy">Privacy Policy</a>
+                    Ho letto e accetto la <a class="link" href="./privacy.html">Privacy Policy</a>
                   </span>
                   <span class="field__error" data-error-for="privacy"></span>
                 </label>
@@ -549,29 +552,63 @@
         </div>
         <div class="footer__col">
           <div class="footer__title">Contatti</div>
+          <a class="footer__link" href="tel:+393792074669">+39 379 207 4669</a>
           <a class="footer__link" href="mailto:info@pvrfacile.it">info@pvrfacile.it</a>
-          <a class="footer__link" href="#contatti">Richiedi informazioni</a>
+          <div class="footer__social" aria-label="Social">
+            <a class="social-link" href="#" aria-label="Facebook" rel="noreferrer">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M14 8h2V5h-2c-2.2 0-4 1.8-4 4v2H8v3h2v6h3v-6h2.1l.9-3H13V9c0-.6.4-1 1-1Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </a>
+            <a class="social-link" href="#" aria-label="Instagram" rel="noreferrer">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M8 3h8a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8a5 5 0 0 1 5-5Z"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                />
+                <path
+                  d="M12 16.2a4.2 4.2 0 1 0 0-8.4 4.2 4.2 0 0 0 0 8.4Z"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                />
+                <path d="M17.5 6.8h.01" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" />
+              </svg>
+            </a>
+            <a class="social-link" href="#" aria-label="TikTok" rel="noreferrer">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M14 3v10.2a4.8 4.8 0 1 1-4.2-4.8V11a2.4 2.4 0 1 0 1.8 2.3V3h2.4Z"
+                  fill="currentColor"
+                />
+                <path
+                  d="M14 5.6c.9 1.6 2.3 2.7 4 3V6.2c-1-.3-2-.9-2.6-1.8-.5-.7-.9-1.5-1-2.4H14v3.6Z"
+                  fill="currentColor"
+                  opacity=".85"
+                />
+              </svg>
+            </a>
+          </div>
         </div>
         <div class="footer__col" id="privacy">
-          <div class="footer__title">Privacy</div>
-          <p class="footer__small">
-            I dati inseriti nel form vengono utilizzati solo per ricontattarti in merito alla richiesta e per fornirti
-            informazioni sui servizi. Per qualsiasi richiesta, scrivi a <a class="footer__link" href="mailto:info@pvrfacile.it">info@pvrfacile.it</a>.
-          </p>
+          <div class="footer__title">Informativa</div>
+          <a class="footer__link" href="./privacy.html">Privacy Policy</a>
+          <a class="footer__link" href="./cookie.html">Cookie Policy</a>
         </div>
       </div>
       <div class="footer__bottom">
         <div class="container footer__bottom-inner">
-          <span>© <span id="year"></span> PVRFACILE</span>
-          <a class="footer__link footer__link--inline" href="#top">Torna su</a>
+          <p class="footer__small">
+            © 2026 PVRfacile.it è un marchio registrato di Desa Service S.r.l.s. - P.I. 10203511216. Tutti gli altri marchi e copyright sono di proprietà dei rispettivi titolari. Tutti i diritti riservati.
+          </p>
         </div>
       </div>
     </footer>
 
     <script>
-      const yearEl = document.getElementById("year");
-      if (yearEl) yearEl.textContent = String(new Date().getFullYear());
-
       const themeToggle = document.querySelector("[data-theme-toggle]");
       const themeMeta = document.querySelector('meta[name="theme-color"]');
       const setLogoForTheme = (theme) => {
@@ -601,6 +638,126 @@
           const current = document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
           applyTheme(current === "dark" ? "light" : "dark");
         });
+      }
+
+      const COOKIE_KEY = "pvr_cookie_consent";
+      const getCookieConsent = () => {
+        try {
+          return localStorage.getItem(COOKIE_KEY);
+        } catch {
+          return null;
+        }
+      };
+      const setCookieConsent = (value) => {
+        try {
+          localStorage.setItem(COOKIE_KEY, value);
+        } catch {}
+      };
+      const closeCookieBanner = (el) => {
+        if (!el) return;
+        el.remove();
+      };
+      const initCookieBanner = () => {
+        if (getCookieConsent()) return;
+        if (document.querySelector("[data-cookie-banner]")) return;
+
+        const el = document.createElement("div");
+        el.className = "cookie-banner";
+        el.setAttribute("data-cookie-banner", "true");
+        el.setAttribute("role", "region");
+        el.setAttribute("aria-label", "Preferenze cookie");
+        el.innerHTML = `
+          <div class="cookie-banner__inner">
+            <div>
+              <div class="cookie-banner__title">Cookie</div>
+              <div class="cookie-banner__text">
+                Usiamo cookie tecnici per far funzionare il sito e cookie di preferenza (es. tema). Se in futuro attiveremo cookie non essenziali, potrai gestirli da qui.
+                <a class="cookie-banner__link" href="./cookie.html">Cookie Policy</a>
+              </div>
+            </div>
+            <div class="cookie-banner__actions">
+              <a class="cookie-banner__link" href="./privacy.html">Privacy Policy</a>
+              <button class="btn btn--ghost btn--sm" type="button" data-cookie-reject>Rifiuta</button>
+              <button class="btn btn--primary btn--sm" type="button" data-cookie-accept>Accetta</button>
+            </div>
+          </div>
+        `;
+
+        document.body.appendChild(el);
+
+        const accept = el.querySelector("[data-cookie-accept]");
+        const reject = el.querySelector("[data-cookie-reject]");
+        if (accept) {
+          accept.addEventListener("click", () => {
+            setCookieConsent("accepted");
+            closeCookieBanner(el);
+          });
+        }
+        if (reject) {
+          reject.addEventListener("click", () => {
+            setCookieConsent("rejected");
+            closeCookieBanner(el);
+          });
+        }
+
+        document.addEventListener(
+          "keydown",
+          (e) => {
+            if (e.key === "Escape") closeCookieBanner(el);
+          },
+          { once: true }
+        );
+      };
+      initCookieBanner();
+
+      const mockupImg = document.querySelector("[data-mockup-img]");
+      const mockupPrev = document.querySelector("[data-mockup-prev]");
+      const mockupNext = document.querySelector("[data-mockup-next]");
+
+      if (mockupImg && mockupPrev && mockupNext) {
+        const graphics = [
+          {
+            src: "./grafiche/a4-grafica-pubblicita.png",
+            alt: "Grafica pubblicitaria servizi per il punto vendita"
+          },
+          { src: "./loghi/4.png", alt: "Mockup punto vendita moderno" }
+        ];
+
+        let index = 0;
+
+        const setDisabled = () => {
+          const disabled = graphics.length < 2;
+          mockupPrev.disabled = disabled;
+          mockupNext.disabled = disabled;
+          mockupPrev.setAttribute("aria-disabled", String(disabled));
+          mockupNext.setAttribute("aria-disabled", String(disabled));
+        };
+
+        const setGraphic = (nextIndex) => {
+          if (graphics.length === 0) return;
+          index = ((nextIndex % graphics.length) + graphics.length) % graphics.length;
+          const item = graphics[index];
+
+          mockupImg.classList.add("is-fading");
+          window.setTimeout(() => {
+            const done = () => {
+              mockupImg.classList.remove("is-fading");
+              mockupImg.removeEventListener("load", done);
+            };
+            mockupImg.addEventListener("load", done);
+            mockupImg.src = item.src;
+            mockupImg.alt = item.alt;
+            if (mockupImg.complete) {
+              done();
+            }
+          }, 120);
+        };
+
+        mockupPrev.addEventListener("click", () => setGraphic(index - 1));
+        mockupNext.addEventListener("click", () => setGraphic(index + 1));
+
+        setDisabled();
+        setGraphic(index);
       }
 
       const navToggle = document.querySelector(".nav-toggle");
@@ -722,5 +879,24 @@
         });
       }
     </script>
+    <a
+      class="whatsapp-fab"
+      href="https://wa.me/393792074669"
+      target="_blank"
+      rel="noopener"
+      aria-label="Chatta su WhatsApp"
+    >
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path
+          d="M12 3a9 9 0 0 0-9 9c0 1.58.41 3.06 1.13 4.34L3 21l4.78-1.26A9 9 0 1 0 12 3Z"
+          stroke="currentColor"
+          stroke-width="1.6"
+        />
+        <path
+          d="M8.6 9.3c.2-.5.3-.7.8-.4l1.1.7c.4.2.5.6.3 1l-.2.4c-.2.4-.1.8.2 1.1l1.6 1.6c.3.3.7.4 1.1.2l.4-.2c.4-.2.8 0 1 .3l.7 1.1c.3.5.1.6-.4.8-1.4.6-3.1.3-4.4-.9-1.3-1.2-2.1-2.6-2.2-4.1Z"
+          fill="currentColor"
+        />
+      </svg>
+    </a>
   </body>
 </html>
