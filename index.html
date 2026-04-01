@@ -288,23 +288,8 @@
           <div class="grid-2">
             <article class="partner reveal">
               <div class="partner__top">
-                <div class="partner__mark partner__mark--red" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none">
-                    <path
-                      d="M16 6H8a3 3 0 0 0-3 3v6a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V9a3 3 0 0 0-3-3Z"
-                      stroke="currentColor"
-                      stroke-width="1.8"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                    <path
-                      d="M10 10h4M10 14h2"
-                      stroke="currentColor"
-                      stroke-width="1.8"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
+                <div class="partner__mark partner__mark--red">
+                  <img class="partner__logo" src="./loghi/logo-vt.png" alt="Vincitu" loading="lazy" decoding="async" />
                 </div>
                 <div>
                   <h3 class="partner__title">Vincitu</h3>
@@ -326,28 +311,8 @@
             </article>
             <article class="partner reveal">
               <div class="partner__top">
-                <div class="partner__mark partner__mark--green" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none">
-                    <path
-                      d="M7 7h10a3 3 0 0 1 3 3v4a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3v-4a3 3 0 0 1 3-3Z"
-                      stroke="currentColor"
-                      stroke-width="1.8"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                    <path
-                      d="M8.5 12h7"
-                      stroke="currentColor"
-                      stroke-width="1.8"
-                      stroke-linecap="round"
-                    />
-                    <path
-                      d="M17.5 10.8h.01M17.5 13.2h.01"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                    />
-                  </svg>
+                <div class="partner__mark partner__mark--green">
+                  <img class="partner__logo" src="./loghi/logo-vp.png" alt="VincituPay" loading="lazy" decoding="async" />
                 </div>
                 <div>
                   <h3 class="partner__title">VincituPay</h3>
@@ -720,10 +685,14 @@
             src: "./grafiche/a4-grafica-pubblicita.png",
             alt: "Grafica pubblicitaria servizi per il punto vendita"
           },
-          { src: "./loghi/4.png", alt: "Mockup punto vendita moderno" }
+          {
+            src: "./grafiche/a4-grafica-tecnologia.png",
+            alt: "Grafica tecnologia e servizi per il punto vendita"
+          }
         ];
 
         let index = 0;
+        let autoplayId = null;
 
         const setDisabled = () => {
           const disabled = graphics.length < 2;
@@ -753,11 +722,56 @@
           }, 120);
         };
 
-        mockupPrev.addEventListener("click", () => setGraphic(index - 1));
-        mockupNext.addEventListener("click", () => setGraphic(index + 1));
+        const prefersReducedMotionCarousel =
+          window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        const stopAutoplay = () => {
+          if (!autoplayId) return;
+          window.clearInterval(autoplayId);
+          autoplayId = null;
+        };
+
+        const startAutoplay = () => {
+          if (prefersReducedMotionCarousel) return;
+          if (autoplayId) return;
+          if (graphics.length < 2) return;
+          autoplayId = window.setInterval(() => setGraphic(index + 1), 5000);
+        };
+
+        const restartAutoplay = () => {
+          stopAutoplay();
+          startAutoplay();
+        };
+
+        mockupPrev.addEventListener("click", () => {
+          setGraphic(index - 1);
+          restartAutoplay();
+        });
+
+        mockupNext.addEventListener("click", () => {
+          setGraphic(index + 1);
+          restartAutoplay();
+        });
+
+        const mediaEl = mockupImg.closest(".mockup__media");
+        const controlsEl = mockupPrev.closest(".mockup__controls");
+        const pauseTargets = [mediaEl, controlsEl].filter(Boolean);
+        pauseTargets.forEach((el) => {
+          el.addEventListener("mouseenter", stopAutoplay);
+          el.addEventListener("mouseleave", startAutoplay);
+        });
+        if (controlsEl) {
+          controlsEl.addEventListener("focusin", stopAutoplay);
+          controlsEl.addEventListener("focusout", startAutoplay);
+        }
+        document.addEventListener("visibilitychange", () => {
+          if (document.hidden) stopAutoplay();
+          else startAutoplay();
+        });
 
         setDisabled();
         setGraphic(index);
+        startAutoplay();
       }
 
       const navToggle = document.querySelector(".nav-toggle");
