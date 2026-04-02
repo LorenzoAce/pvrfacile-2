@@ -6,8 +6,8 @@
     <meta name="theme-color" content="#FFFFFF" />
     <title>Privacy Policy — PVRfacile.it</title>
     <meta name="description" content="Informativa privacy e cookie di PVRfacile.it." />
-    <link rel="preload" as="image" href="./loghi/2.png" />
-    <link rel="preload" as="image" href="./loghi/3.png" />
+    <link rel="preload" as="image" href="./imgs/logos/pvrfacile-horizontal-red-light-theme-logo.png" />
+    <link rel="preload" as="image" href="./imgs/logos/pvrfacile-horizontal-red-dark-theme-logo.png" />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
@@ -15,11 +15,20 @@
     <header class="header">
       <div class="container header__inner">
         <a class="brand" href="./index.html" aria-label="Vai alla home">
-          <img class="brand__logo" src="./loghi/2.png" alt="PVRFACILE" width="176" height="44" />
+          <img
+            class="brand__logo"
+            src="./imgs/logos/pvrfacile-horizontal-red-light-theme-logo.png"
+            alt="PVRFACILE"
+            width="176"
+            height="44"
+          />
         </a>
         <nav class="nav" aria-label="Navigazione">
-          <a class="nav__link" href="./index.html">Home</a>
-          <a class="nav__link" href="./cookie.html">Cookie Policy</a>
+          <a class="nav__link" href="./chi-siamo.html">Chi Siamo</a>
+          <a class="nav__link" href="./servizi.html">Servizi</a>
+          <a class="nav__link" href="./index.html#prodotti">Prodotti</a>
+          <a class="nav__link" href="./index.html#come-funziona">Come funziona</a>
+          <a class="btn btn--sm btn--primary" href="./index.html#contatti">Richiedi informazioni</a>
         </nav>
         <div class="header__actions">
           <button class="theme-toggle" type="button" aria-label="Cambia tema" data-theme-toggle>
@@ -132,6 +141,37 @@
     </main>
 
     <footer class="footer" aria-label="Footer">
+      <div class="container footer__grid">
+        <div class="footer__brand">
+          <img
+            class="footer__logo"
+            src="./imgs/logos/pvrfacile-horizontal-red-light-theme-logo.png"
+            alt="PVRFACILE"
+            width="176"
+            height="44"
+          />
+          <p class="footer__text">
+            Soluzioni per bar, tabacchi, edicole e piccole attività: più servizi, più clienti, più guadagni.
+          </p>
+        </div>
+        <div class="footer__col">
+          <div class="footer__title">Contatti</div>
+          <a class="footer__link" href="tel:+393792074669">+39 379 207 4669</a>
+          <a class="footer__link" href="mailto:info@pvrfacile.it">info@pvrfacile.it</a>
+        </div>
+        <div class="footer__col" aria-label="Pagine">
+          <div class="footer__title">Pagine</div>
+          <a class="footer__link" href="./index.html">Home</a>
+          <a class="footer__link" href="./chi-siamo.html">Chi Siamo</a>
+          <a class="footer__link" href="./servizi.html">Servizi</a>
+          <a class="footer__link" href="./index.html#contatti">Contatti</a>
+        </div>
+        <div class="footer__col" id="privacy">
+          <div class="footer__title">Informativa</div>
+          <a class="footer__link" href="./privacy.html">Privacy Policy</a>
+          <a class="footer__link" href="./cookie.html">Cookie Policy</a>
+        </div>
+      </div>
       <div class="footer__bottom">
         <div class="container footer__bottom-inner">
           <p class="footer__small">
@@ -145,7 +185,10 @@
       const themeToggle = document.querySelector("[data-theme-toggle]");
       const themeMeta = document.querySelector('meta[name="theme-color"]');
       const setLogoForTheme = (theme) => {
-        const logoSrc = theme === "dark" ? "./loghi/3.png" : "./loghi/2.png";
+        const logoSrc =
+          theme === "dark"
+            ? "./imgs/logos/pvrfacile-horizontal-red-dark-theme-logo.png"
+            : "./imgs/logos/pvrfacile-horizontal-red-light-theme-logo.png";
         document.querySelectorAll('img[alt="PVRFACILE"]').forEach((img) => {
           img.src = logoSrc;
         });

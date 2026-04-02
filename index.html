@@ -7,10 +7,10 @@
     <title>PVRFACILE — Trasforma il tuo negozio in un centro servizi completo</title>
     <meta
       name="description"
-      content="Attiva PVR, corner gaming e i servizi digitali più richiesti (ricariche, bollettini, pagoPA, F24, SPID, POS e altro). Più clienti, più guadagni, supporto continuo."
+      content="Attiva PVR, corner gaming e i servizi digitali più richiesti (Ricariche Telefoniche, Pagamento Bollettini, pagoPA, F24, SPID, POS, SIM e tanto altro). Più clienti, più guadagni, supporto continuo."
     />
-    <link rel="preload" as="image" href="./loghi/2.png" />
-    <link rel="preload" as="image" href="./loghi/3.png" />
+    <link rel="preload" as="image" href="./imgs/logos/pvrfacile-horizontal-red-light-theme-logo.png" />
+    <link rel="preload" as="image" href="./imgs/logos/pvrfacile-horizontal-red-dark-theme-logo.png" />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
@@ -18,13 +18,19 @@
     <header class="header">
       <div class="container header__inner">
         <a class="brand" href="#top" aria-label="Vai all'inizio pagina">
-          <img class="brand__logo" src="./loghi/2.png" alt="PVRFACILE" width="176" height="44" />
+          <img
+            class="brand__logo"
+            src="./imgs/logos/pvrfacile-horizontal-red-light-theme-logo.png"
+            alt="PVRFACILE"
+            width="176"
+            height="44"
+          />
         </a>
         <nav class="nav" aria-label="Navigazione principale">
-          <a class="nav__link" href="#benefici">Benefici</a>
-          <a class="nav__link" href="#partner">Partner</a>
+          <a class="nav__link" href="./chi-siamo.html">Chi Siamo</a>
+          <a class="nav__link" href="./servizi.html">Servizi</a>
+          <a class="nav__link" href="#prodotti">Prodotti</a>
           <a class="nav__link" href="#come-funziona">Come funziona</a>
-          <a class="nav__link" href="#testimonianze">Testimonianze</a>
           <a class="btn btn--sm btn--primary" href="#contatti">Richiedi informazioni</a>
         </nav>
         <div class="header__actions">
@@ -66,13 +72,20 @@
         </div>
       </div>
       <div class="mobile-nav" data-mobile-nav hidden>
-        <a class="mobile-nav__link" href="#benefici">Benefici</a>
-        <a class="mobile-nav__link" href="#partner">Partner</a>
+        <a class="mobile-nav__link" href="./chi-siamo.html">Chi Siamo</a>
+        <a class="mobile-nav__link" href="./servizi.html">Servizi</a>
+        <a class="mobile-nav__link" href="#prodotti">Prodotti</a>
         <a class="mobile-nav__link" href="#come-funziona">Come funziona</a>
-        <a class="mobile-nav__link" href="#testimonianze">Testimonianze</a>
         <a class="btn btn--primary" href="#contatti">Diventa partner</a>
       </div>
     </header>
+    <section class="news" aria-label="Ultima news">
+      <div class="container news__inner">
+        <span class="news__dot" aria-hidden="true"></span>
+        <span class="news__label">Ultima news</span>
+        <span class="news__text">Attivazione Gratuita</span>
+      </div>
+    </section>
     <main id="contenuto">
       <section class="hero" id="top" aria-label="Sezione principale">
         <div class="container hero__grid">
@@ -81,28 +94,28 @@
               <div class="pill__logos" aria-label="Partner e iniziative">
                 <img
                   class="pill__logo pill__logo--mono"
-                  src="./institutional/adm-logo.png"
+                  src="./imgs/institutional/adm-logo.png"
                   alt="ADM"
                   loading="lazy"
                   decoding="async"
                 />
                 <img
                   class="pill__logo pill__logo--mono"
-                  src="./institutional/adm-timone-logo.png"
+                  src="./imgs/institutional/adm-timone-logo.png"
                   alt="ADM - Timone"
                   loading="lazy"
                   decoding="async"
                 />
                 <img
                   class="pill__logo pill__logo--gioca pill__logo--light"
-                  src="./institutional/gioca-responsabilmente-logo.png"
+                  src="./imgs/institutional/gioca-responsabilmente-black-logo.png"
                   alt="Gioca responsabilmente"
                   loading="lazy"
                   decoding="async"
                 />
                 <img
                   class="pill__logo pill__logo--gioca pill__logo--dark"
-                  src="./institutional/gioca-responsabilmente-bianco-logo.png"
+                  src="./imgs/institutional/gioca-responsabilmente-white-logo.png"
                   alt=""
                   aria-hidden="true"
                   loading="lazy"
@@ -126,7 +139,7 @@
             </ul>
             <div class="trust-line">
               <div class="trust-line__stat">
-                <span class="trust-line__num">Oltre 1.000</span>
+                <span class="trust-line__num">Oltre 4.000</span>
                 <span class="trust-line__label">attività in Italia</span>
               </div>
               <div class="trust-line__badges" aria-label="Badge di affidabilità">
@@ -143,7 +156,7 @@
                   <img
                     class="mockup__img"
                     data-mockup-img
-                    src="./grafiche/a4-grafica-pubblicita.png"
+                    src="./imgs/graphics/a4-grafica-pubblicita.png"
                     alt="Grafica pubblicitaria servizi per il punto vendita"
                     loading="lazy"
                     decoding="async"
@@ -194,8 +207,9 @@
             <article class="card reveal">
               <div class="card__icon card__icon--red" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M4 19h16M4 5v14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
                   <path
-                    d="M12 21s7-4.4 7-11a4 4 0 0 0-7-2.2A4 4 0 0 0 5 10c0 6.6 7 11 7 11Z"
+                    d="M5 16l5-5 4 4 5-8"
                     stroke="currentColor"
                     stroke-width="1.8"
                     stroke-linecap="round"
@@ -213,13 +227,12 @@
             <article class="card reveal">
               <div class="card__icon card__icon--green" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M18 8a6 6 0 0 1 0 12H7a5 5 0 0 1 0-10 6 6 0 0 1 11-2Z"
-                    stroke="currentColor"
-                    stroke-width="1.8"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
+                  <circle cx="12" cy="8" r="2.2" stroke="currentColor" stroke-width="1.8" />
+                  <circle cx="6.5" cy="9.2" r="1.8" stroke="currentColor" stroke-width="1.6" />
+                  <circle cx="17.5" cy="9.2" r="1.8" stroke="currentColor" stroke-width="1.6" />
+                  <path d="M4 20c0-3.4 3-6 8-6s8 2.6 8 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                  <path d="M2.5 20c0-2.6 2.2-4.6 5-4.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+                  <path d="M21.5 20c0-2.6-2.2-4.6-5-4.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
                 </svg>
               </div>
               <h3 class="card__title">Più clienti nel punto vendita</h3>
@@ -250,20 +263,10 @@
             <article class="card reveal">
               <div class="card__icon card__icon--dark" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M12 3l7 4v6c0 5-3 9-7 10-4-1-7-5-7-10V7l7-4Z"
-                    stroke="currentColor"
-                    stroke-width="1.8"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M9 12l2 2 4-4"
-                    stroke="currentColor"
-                    stroke-width="1.8"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
+                  <path d="M6 9l2-2 3 3 2-2 5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M8 11l3 3a2.4 2.4 0 0 0 3.4 0l3.2-3.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M4.5 14.5 8 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                  <path d="M19.5 10.5 16 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
                 </svg>
               </div>
               <h3 class="card__title">Supporto continuo</h3>
@@ -289,7 +292,13 @@
             <article class="partner reveal">
               <div class="partner__top">
                 <div class="partner__mark partner__mark--red">
-                  <img class="partner__logo" src="./loghi/logo-vt.png" alt="Vincitu" loading="lazy" decoding="async" />
+                  <img
+                    class="partner__logo"
+                    src="./imgs/partners/vt-favicon.png"
+                    alt="Vincitu"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
                 <div>
                   <h3 class="partner__title">Vincitu</h3>
@@ -312,22 +321,30 @@
             <article class="partner reveal">
               <div class="partner__top">
                 <div class="partner__mark partner__mark--green">
-                  <img class="partner__logo" src="./loghi/logo-vp.png" alt="VincituPay" loading="lazy" decoding="async" />
+                  <img
+                    class="partner__logo"
+                    src="./imgs/partners/vp-favicon.png"
+                    alt="VincituPay"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
                 <div>
                   <h3 class="partner__title">VincituPay</h3>
                   <p class="partner__subtitle">
-                    Servizi per il punto vendita: ricariche, gift card, bollettini, pagoPA, F24, visure, spedizioni,
+                    Servizi per il punto vendita: Ricariche Telefoniche, gift card, bollettini, pagoPA, F24, visure, spedizioni,
                     SPID, POS e altri servizi digitali.
                   </p>
                 </div>
               </div>
               <div class="pill-row" aria-label="Servizi disponibili">
-                <span class="pill2">Ricariche</span>
+                <span class="pill2">Ricariche Telefoniche</span>
                 <span class="pill2">Gift Card</span>
-                <span class="pill2">Bollettini</span>
+                <span class="pill2">Pagamento Bollettini</span>
                 <span class="pill2">pagoPA</span>
                 <span class="pill2">F24</span>
+                <span class="pill2">Visure</span>
+                <span class="pill2">Attivazione SIM</span>
                 <span class="pill2">SPID</span>
                 <span class="pill2">Spedizioni</span>
                 <span class="pill2">POS</span>
@@ -337,6 +354,145 @@
                 <a class="btn btn--ghost" href="#benefici">Vedi i benefici</a>
               </div>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--carousel" id="prodotti" aria-label="Prodotti">
+        <div class="container">
+          <div class="section__head reveal">
+            <h2 class="section__title">Prodotti</h2>
+            <p class="section__subtitle">
+              Scorri le slide per vedere esempi di soluzioni e contenuti che puoi mostrare nel punto vendita.
+            </p>
+          </div>
+        </div>
+        <div class="carousel" data-carousel>
+          <div class="carousel__viewport" data-carousel-viewport aria-label="Slider Prodotti" tabindex="0">
+            <div class="carousel__track" data-carousel-track>
+              <article class="carousel__slide" aria-label="Slide 1">
+                <div class="container">
+                  <div class="carousel__panel">
+                    <div class="carousel__copy">
+                      <h3 class="carousel__title">PVR e Gioco Online</h3>
+                      <p class="carousel__text">
+                        È la soluzione più semplice da integrare nella propria attività, con margini di guadagno elevati e un impegno operativo minimo. Consente di offrire servizi digitali richiesti dal mercato, aumentando i ricavi senza complicare la gestione quotidiana.
+                      </p>
+                      <ul class="carousel__checks" aria-label="Vantaggi principali">
+                        <li>Facile integrazione nell’attività esistente</li>
+                        <li>Margini di guadagno elevati</li>
+                        <li>Basso impegno operativo e gestionale</li>
+                        <li>Servizi digitali sempre più richiesti</li>
+                        <li>Incremento dei ricavi senza complicazioni</li>
+                        <li>Attivazione rapida e gestione semplificata</li>
+                        <li>Fornitura di materiale pubblicitario (tabelle, poster, bandiere, ecc.)</li>
+                      </ul>
+                    </div>
+                    <div class="carousel__media" aria-label="Grafica di esempio">
+                      <img
+                        class="carousel__img"
+                        src="./imgs/graphics/a4-grafica-tecnologia.png"
+                        alt="Esempio grafica tecnologia"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <article class="carousel__slide" aria-label="Slide 2">
+                <div class="container">
+                  <div class="carousel__panel">
+                    <div class="carousel__copy">
+                      <h3 class="carousel__title">Agenzia e Corner</h3>
+                      <p class="carousel__text">
+                        Rappresenta un’opportunità di incrementare i ricavi grazie a un servizio aggiuntivo ad alta rotazione, con margini interessanti e possibilità di fidelizzare la clientela. Inoltre, consente di diversificare l’attività, aumentando il traffico nel punto vendita e creando nuove opportunità di cross-selling.
+                      </p>
+                      <ul class="carousel__checks" aria-label="Vantaggi principali">
+                        <li>Incremento dei ricavi con servizio ad alta rotazione</li>
+                        <li>Margini interessanti e continuità di guadagno</li>
+                        <li>Fidelizzazione della clientela</li>
+                        <li>Aumento del traffico nel punto vendita</li>
+                        <li>Possibilità di cross-selling con altri servizi</li>
+                        <li>Presenza fisica che genera fiducia e supporto al cliente</li>
+                        <li>Sopralluoghi dedicati per valutazione e avviamento attività</li>
+                        <li>Preparazione e gestione della lettera d’incarico</li>
+                      </ul>
+                    </div>
+                    <div class="carousel__media" aria-label="Grafica di esempio">
+                      <img
+                        class="carousel__img"
+                        src="./imgs/graphics/a4-grafica-pubblicita.png"
+                        alt="Esempio grafica pubblicità"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <article class="carousel__slide" aria-label="Slide 3">
+                <div class="container">
+                  <div class="carousel__panel">
+                    <div class="carousel__copy">
+                      <h3 class="carousel__title">VincituPay</h3>
+                      <p class="carousel__text">
+                        Servizi di pagamento, ricariche e transazioni per aumentare il traffico e la redditività nel punto vendita.
+                      </p>
+                      <ul class="carousel__checks" aria-label="Vantaggi principali">
+                        <li>Sistema di pagamento moderno e integrabile facilmente nell’attività</li>
+                        <li>Incremento dei ricavi grazie ai servizi di ricarica, pagamenti e transazioni</li>
+                        <li>Commissioni competitive e guadagni costanti</li>
+                        <li>Semplicità di utilizzo per operatore e cliente</li>
+                        <li>Riduzione dei tempi di gestione delle operazioni</li>
+                        <li>Servizio sempre più richiesto e ad alta frequenza di utilizzo</li>
+                        <li>Supporto completo in fase di attivazione e assistenza continua</li>
+                        <li>Possibilità di fidelizzare la clientela offrendo un servizio rapido e affidabile</li>
+                      </ul>
+                    </div>
+                    <div class="carousel__media carousel__media--stack" aria-label="Logo VincituPay">
+                      <div class="carousel__logo-row">
+                        <img
+                          class="carousel__logo"
+                          src="./imgs/partners/vincitupay-logo.png"
+                          alt="VincituPay"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </div>
+                      <div class="carousel__note">Ricariche, pagamenti e servizi digitali ad alta frequenza.</div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+          <div class="container">
+            <div class="carousel__controls" aria-label="Controlli slider Prodotti">
+              <button class="carousel__btn" type="button" data-carousel-prev aria-label="Slide precedente">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path
+                    d="M14.5 5.5 8 12l6.5 6.5"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+              <div class="carousel__dots" data-carousel-dots aria-label="Indicatori slide"></div>
+              <button class="carousel__btn" type="button" data-carousel-next aria-label="Slide successiva">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path
+                    d="M9.5 5.5 16 12l-6.5 6.5"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
       </section>
@@ -397,7 +553,7 @@
           <div class="grid-3">
             <figure class="quote reveal">
               <blockquote class="quote__text">
-                “In tabaccheria il passaggio è aumentato: molti entrano per pagoPA o ricariche e poi prendono anche altro.
+                “In tabaccheria il passaggio è aumentato: molti entrano per pagoPA o Ricariche Telefoniche e poi prendono anche altro.
                 L’attivazione è stata semplice e l’assistenza sempre presente.”
               </blockquote>
               <figcaption class="quote__who">
@@ -458,33 +614,46 @@
               <form class="form" id="leadForm" novalidate>
                 <div class="form__row">
                   <label class="field">
-                    <span class="field__label">Nome attività</span>
-                    <input class="field__input" name="attivita" autocomplete="organization" required />
-                    <span class="field__error" data-error-for="attivita"></span>
+                    <span class="field__label">Nome</span>
+                    <input class="field__input" name="nome" autocomplete="name" required />
+                    <span class="field__error" data-error-for="nome"></span>
                   </label>
                   <label class="field">
-                    <span class="field__label">Città</span>
-                    <input class="field__input" name="citta" autocomplete="address-level2" required />
-                    <span class="field__error" data-error-for="citta"></span>
+                    <span class="field__label">Tipo attività</span>
+                    <select class="field__input" name="tipo_attivita" required>
+                      <option value="" selected disabled>Seleziona…</option>
+                      <option value="Bar">Bar</option>
+                      <option value="Tabacchi">Tabacchi</option>
+                      <option value="Edicola">Edicola</option>
+                      <option value="Agente">Agente</option>
+                      <option value="Tipster">Tipster</option>
+                      <option value="Privato">Privato</option>
+                      <option value="Altro">Altro</option>
+                    </select>
+                    <span class="field__error" data-error-for="tipo_attivita"></span>
                   </label>
                 </div>
-                <label class="field">
-                  <span class="field__label">Nome titolare</span>
-                  <input class="field__input" name="titolare" autocomplete="name" required />
-                  <span class="field__error" data-error-for="titolare"></span>
-                </label>
                 <div class="form__row">
-                  <label class="field">
-                    <span class="field__label">Telefono</span>
-                    <input class="field__input" name="telefono" inputmode="tel" autocomplete="tel" required />
-                    <span class="field__error" data-error-for="telefono"></span>
-                  </label>
                   <label class="field">
                     <span class="field__label">Email</span>
                     <input class="field__input" name="email" inputmode="email" autocomplete="email" required />
                     <span class="field__error" data-error-for="email"></span>
                   </label>
+                  <label class="field">
+                    <span class="field__label">Telefono</span>
+                    <input class="field__input" name="telefono" inputmode="tel" autocomplete="tel" required />
+                    <span class="field__error" data-error-for="telefono"></span>
+                  </label>
                 </div>
+                <label class="field">
+                  <span class="field__label">Cosa desideri?</span>
+                  <textarea
+                    class="field__input"
+                    name="desideri"
+                    rows="4"
+                    placeholder="Agenzia, Corner, PVR, Real Bonus, Fun Bonus, Maggiorate, Profilo provvigionale più alto, altro..."
+                  ></textarea>
+                </label>
                 <label class="field field--checkbox">
                   <input class="field__checkbox" type="checkbox" name="privacy" required />
                   <span class="field__label">
@@ -510,7 +679,13 @@
     <footer class="footer" aria-label="Footer">
       <div class="container footer__grid">
         <div class="footer__brand">
-          <img class="footer__logo" src="./loghi/2.png" alt="PVRFACILE" width="176" height="44" />
+          <img
+            class="footer__logo"
+            src="./imgs/logos/pvrfacile-horizontal-red-light-theme-logo.png"
+            alt="PVRFACILE"
+            width="176"
+            height="44"
+          />
           <p class="footer__text">
             Soluzioni per bar, tabacchi, edicole e piccole attività: più servizi, più clienti, più guadagni.
           </p>
@@ -558,6 +733,13 @@
             </a>
           </div>
         </div>
+        <div class="footer__col" aria-label="Pagine">
+          <div class="footer__title">Pagine</div>
+          <a class="footer__link" href="#top">Home</a>
+          <a class="footer__link" href="./chi-siamo.html">Chi Siamo</a>
+          <a class="footer__link" href="./servizi.html">Servizi</a>
+          <a class="footer__link" href="#contatti">Contatti</a>
+        </div>
         <div class="footer__col" id="privacy">
           <div class="footer__title">Informativa</div>
           <a class="footer__link" href="./privacy.html">Privacy Policy</a>
@@ -577,7 +759,10 @@
       const themeToggle = document.querySelector("[data-theme-toggle]");
       const themeMeta = document.querySelector('meta[name="theme-color"]');
       const setLogoForTheme = (theme) => {
-        const logoSrc = theme === "dark" ? "./loghi/3.png" : "./loghi/2.png";
+        const logoSrc =
+          theme === "dark"
+            ? "./imgs/logos/pvrfacile-horizontal-red-dark-theme-logo.png"
+            : "./imgs/logos/pvrfacile-horizontal-red-light-theme-logo.png";
         document.querySelectorAll('img[alt="PVRFACILE"]').forEach((img) => {
           img.src = logoSrc;
         });
@@ -682,11 +867,11 @@
       if (mockupImg && mockupPrev && mockupNext) {
         const graphics = [
           {
-            src: "./grafiche/a4-grafica-pubblicita.png",
+            src: "./imgs/graphics/a4-grafica-pubblicita.png",
             alt: "Grafica pubblicitaria servizi per il punto vendita"
           },
           {
-            src: "./grafiche/a4-grafica-tecnologia.png",
+            src: "./imgs/graphics/a4-grafica-tecnologia.png",
             alt: "Grafica tecnologia e servizi per il punto vendita"
           }
         ];
@@ -774,6 +959,78 @@
         startAutoplay();
       }
 
+      const initCarousel = (carouselEl) => {
+        const viewport = carouselEl.querySelector("[data-carousel-viewport]");
+        const track = carouselEl.querySelector("[data-carousel-track]");
+        const prevBtn = carouselEl.querySelector("[data-carousel-prev]");
+        const nextBtn = carouselEl.querySelector("[data-carousel-next]");
+        const dotsWrap = carouselEl.querySelector("[data-carousel-dots]");
+        if (!viewport || !track || !prevBtn || !nextBtn || !dotsWrap) return;
+
+        const slides = Array.from(track.querySelectorAll(".carousel__slide"));
+        if (slides.length === 0) return;
+
+        const prefersReducedMotion =
+          window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        let current = 0;
+        let raf = 0;
+        const dots = slides.map((_, i) => {
+          const b = document.createElement("button");
+          b.type = "button";
+          b.className = "carousel__dot";
+          b.setAttribute("aria-label", `Vai alla slide ${i + 1}`);
+          b.addEventListener("click", () => scrollToIndex(i));
+          dotsWrap.appendChild(b);
+          return b;
+        });
+
+        const setActive = (i) => {
+          current = i;
+          dots.forEach((d, idx) => d.classList.toggle("is-active", idx === current));
+        };
+
+        const getIndexFromScroll = () => {
+          const w = viewport.clientWidth || 1;
+          return Math.round(viewport.scrollLeft / w);
+        };
+
+        const scrollToIndex = (i) => {
+          const w = viewport.clientWidth || 1;
+          const next = Math.max(0, Math.min(slides.length - 1, i));
+          viewport.scrollTo({ left: next * w, behavior: prefersReducedMotion ? "auto" : "smooth" });
+          setActive(next);
+        };
+
+        prevBtn.addEventListener("click", () => scrollToIndex(current - 1));
+        nextBtn.addEventListener("click", () => scrollToIndex(current + 1));
+
+        viewport.addEventListener("scroll", () => {
+          if (raf) return;
+          raf = window.requestAnimationFrame(() => {
+            raf = 0;
+            setActive(getIndexFromScroll());
+          });
+        });
+
+        viewport.addEventListener("keydown", (e) => {
+          if (e.key === "ArrowLeft") {
+            e.preventDefault();
+            scrollToIndex(current - 1);
+          }
+          if (e.key === "ArrowRight") {
+            e.preventDefault();
+            scrollToIndex(current + 1);
+          }
+        });
+
+        window.addEventListener("resize", () => scrollToIndex(current));
+
+        setActive(0);
+      };
+
+      document.querySelectorAll("[data-carousel]").forEach((el) => initCarousel(el));
+
       const navToggle = document.querySelector(".nav-toggle");
       const mobileNav = document.querySelector("[data-mobile-nav]");
       const closeMobileNav = () => {
@@ -829,24 +1086,20 @@
           clearErrors();
 
           const data = new FormData(form);
-          const attivita = String(data.get("attivita") || "").trim();
-          const citta = String(data.get("citta") || "").trim();
-          const titolare = String(data.get("titolare") || "").trim();
+          const nome = String(data.get("nome") || "").trim();
+          const tipoAttivita = String(data.get("tipo_attivita") || "").trim();
           const telefono = String(data.get("telefono") || "").trim();
           const email = String(data.get("email") || "").trim();
+          const desideri = String(data.get("desideri") || "").trim();
           const privacy = data.get("privacy") === "on";
 
           let ok = true;
-          if (!attivita) {
-            showError("attivita", "Inserisci il nome dell’attività.");
+          if (!nome) {
+            showError("nome", "Inserisci il nome.");
             ok = false;
           }
-          if (!citta) {
-            showError("citta", "Inserisci la città.");
-            ok = false;
-          }
-          if (!titolare) {
-            showError("titolare", "Inserisci il nome del titolare.");
+          if (!tipoAttivita) {
+            showError("tipo_attivita", "Inserisci il tipo di attività.");
             ok = false;
           }
           if (!telefono || !isPhoneLikelyValid(telefono)) {
@@ -870,11 +1123,11 @@
               "",
               "vorrei ricevere informazioni per diventare partner PVRFACILE.",
               "",
-              `Nome attività: ${attivita}`,
-              `Nome titolare: ${titolare}`,
+              `Nome: ${nome}`,
+              `Tipo attività: ${tipoAttivita}`,
               `Telefono: ${telefono}`,
               `Email: ${email}`,
-              `Città: ${citta}`,
+              desideri ? `Cosa desideri: ${desideri}` : "",
               "",
               "Grazie"
             ].join("\n")
