@@ -1084,9 +1084,42 @@ a {
 }
 
 @media (max-width: 760px) {
+  .logo-slider {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .logo-slider__track {
+    flex-wrap: nowrap;
+    gap: 22px;
+    width: max-content;
+    scroll-snap-type: x mandatory;
+    padding: 8px 6px;
+  }
   .logo-slider__logo {
-    width: min(240px, 70vw);
-    height: 74px;
+    width: clamp(180px, 72vw, 260px);
+    height: auto;
+    scroll-snap-align: center;
+    flex: 0 0 auto;
+  }
+}
+
+@media (max-width: 1024px) {
+  .logo-slider {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .logo-slider__track {
+    flex-wrap: nowrap;
+    gap: 22px;
+    width: max-content;
+    scroll-snap-type: x mandatory;
+    padding: 8px 6px;
+  }
+  .logo-slider__logo {
+    width: clamp(200px, 48vw, 300px);
+    height: auto;
+    scroll-snap-align: center;
+    flex: 0 0 auto;
   }
 }
 
