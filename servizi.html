@@ -12,6 +12,43 @@
   </head>
   <body>
     <a class="skip-link" href="#contenuto">Vai al contenuto</a>
+    <div class="theme-modal" data-theme-modal role="dialog" aria-modal="true" aria-label="Seleziona tema" hidden>
+      <div class="theme-modal__card">
+        <img
+          class="theme-modal__brand"
+          src="./imgs/logos/pvrfacile-horizontal-red-dark-theme-logo.png"
+          alt="PVRFACILE"
+          width="176"
+          height="44"
+          loading="eager"
+          decoding="async"
+        />
+        <h2 class="theme-modal__title">Preferisci il tema light o dark?</h2>
+        <div class="theme-modal__actions" aria-label="Scelta tema">
+          <button class="btn btn--ghost" type="button" data-theme-choice="light">Tema light</button>
+          <button class="btn btn--primary" type="button" data-theme-choice="dark">Tema dark</button>
+        </div>
+        <div class="theme-modal__logos" aria-label="Loghi istituzionali">
+          <img class="pill__logo pill__logo--mono" src="./imgs/institutional/adm-logo.png" alt="ADM" loading="lazy" decoding="async" />
+          <img class="pill__logo pill__logo--mono" src="./imgs/institutional/adm-timone-logo.png" alt="ADM - Timone" loading="lazy" decoding="async" />
+          <img
+            class="pill__logo pill__logo--gioca pill__logo--light"
+            src="./imgs/institutional/gioca-responsabilmente-black-logo.png"
+            alt="Gioca responsabilmente"
+            loading="lazy"
+            decoding="async"
+          />
+          <img
+            class="pill__logo pill__logo--gioca pill__logo--dark"
+            src="./imgs/institutional/gioca-responsabilmente-white-logo.png"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+      </div>
+    </div>
     <header class="header">
       <div class="container header__inner">
         <a class="brand" href="./index.html" aria-label="Vai alla home">
@@ -203,29 +240,60 @@
           img.src = logoSrc;
         });
       };
-      const applyTheme = (theme) => {
+      const applyTheme = (theme, persist = true) => {
         document.documentElement.setAttribute("data-theme", theme);
-        try {
-          localStorage.setItem("theme", theme);
-        } catch {}
+        if (persist) {
+          try {
+            localStorage.setItem("theme", theme);
+          } catch {}
+        }
         themeMeta?.setAttribute("content", theme === "dark" ? "#001B3D" : "#FFFFFF");
         setLogoForTheme(theme);
       };
-      const getInitialTheme = () => {
+      const getSavedTheme = () => {
         try {
           const saved = localStorage.getItem("theme");
-          if (saved === "dark" || saved === "light") return saved;
-        } catch {}
+          return saved === "dark" || saved === "light" ? saved : null;
+        } catch {
+          return null;
+        }
+      };
+      const getInitialTheme = () => {
         const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
         return prefersDark ? "dark" : "light";
       };
-      applyTheme(getInitialTheme());
+      const savedTheme = getSavedTheme();
+      applyTheme(savedTheme ?? getInitialTheme(), Boolean(savedTheme));
       if (themeToggle) {
         themeToggle.addEventListener("click", () => {
           const current = document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
           applyTheme(current === "dark" ? "light" : "dark");
         });
       }
+
+      const initThemeModal = () => {
+        if (savedTheme === "dark" || savedTheme === "light") return;
+        const modal = document.querySelector("[data-theme-modal]");
+        if (!modal) return;
+        modal.hidden = false;
+        document.documentElement.classList.add("theme-modal-open");
+        document.body.classList.add("theme-modal-open");
+        const buttons = Array.from(modal.querySelectorAll("[data-theme-choice]"));
+        const close = () => {
+          modal.hidden = true;
+          document.documentElement.classList.remove("theme-modal-open");
+          document.body.classList.remove("theme-modal-open");
+        };
+        const choose = (theme) => {
+          applyTheme(theme);
+          close();
+        };
+        buttons.forEach((b) =>
+          b.addEventListener("click", () => choose(b.getAttribute("data-theme-choice") === "dark" ? "dark" : "light"))
+        );
+        buttons[0]?.focus();
+      };
+      initThemeModal();
     </script>
   </body>
 </html>

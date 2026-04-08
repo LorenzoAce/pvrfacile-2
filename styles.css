@@ -395,6 +395,70 @@ a {
     background-size: 100% 100%;
   }
 }
+
+html.theme-modal-open,
+body.theme-modal-open {
+  overflow: hidden;
+}
+
+.theme-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  background: rgba(0, 0, 0, 0.48);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.theme-modal__card {
+  width: min(560px, 100%);
+  border-radius: 22px;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--surface) 86%, transparent);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.28);
+  padding: 22px;
+  text-align: center;
+}
+
+.theme-modal__brand {
+  height: 44px;
+  width: auto;
+  display: block;
+  margin: 0 auto 12px auto;
+}
+
+.theme-modal__title {
+  margin: 0;
+  font-size: 20px;
+  letter-spacing: -0.25px;
+}
+
+.theme-modal__actions {
+  margin-top: 14px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.theme-modal__logos {
+  margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px;
+  align-items: center;
+}
+
+.theme-modal__logos img {
+  height: 24px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
 .news + .hero {
   padding-top: 0;
 }
