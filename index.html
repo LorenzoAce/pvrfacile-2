@@ -833,6 +833,45 @@
         mobileNav.querySelectorAll("a").forEach((a) => a.addEventListener("click", closeMobileNav));
       }
 
+      const initPartnerLogosAutoplay = () => {
+        const slider = document.querySelector(".logo-slider");
+        const track = slider?.querySelector(".logo-slider__track");
+        if (!slider || !track) return;
+        const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const isSmall = window.matchMedia("(max-width: 1024px)").matches;
+        if (reduce || !isSmall) return;
+        const items = Array.from(track.querySelectorAll(".logo-slider__logo"));
+        if (items.length < 2) return;
+        let idx = 0;
+        let timer = 0;
+        let paused = false;
+        const scrollToIdx = (i) => {
+          const el = items[i];
+          if (!el) return;
+          const left = el.offsetLeft + el.offsetWidth / 2 - slider.clientWidth / 2;
+          slider.scrollTo({ left: Math.max(0, left), behavior: "smooth" });
+        };
+        const start = () => {
+          stop();
+          timer = window.setInterval(() => {
+            if (paused) return;
+            idx = (idx + 1) % items.length;
+            scrollToIdx(idx);
+          }, 2600);
+        };
+        const stop = () => {
+          if (timer) window.clearInterval(timer);
+          timer = 0;
+        };
+        slider.addEventListener("mouseenter", () => (paused = true));
+        slider.addEventListener("mouseleave", () => (paused = false));
+        slider.addEventListener("touchstart", () => (paused = true), { passive: true });
+        slider.addEventListener("touchend", () => (paused = false), { passive: true });
+        document.addEventListener("visibilitychange", () => (paused = document.hidden));
+        start();
+      };
+      initPartnerLogosAutoplay();
+
       const revealEls = Array.from(document.querySelectorAll(".reveal"));
       const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       if (!prefersReducedMotion && "IntersectionObserver" in window) {
