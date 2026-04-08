@@ -365,8 +365,36 @@ a {
 .news__text {
   font-size: 15px;
   font-weight: 900;
+  background: linear-gradient(90deg, rgba(235, 29, 39, 0.95), rgba(158, 255, 31, 0.95), rgba(0, 27, 61, 0.9));
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: news-gradient 4.8s ease-in-out infinite;
 }
 
+.news__text:hover {
+  animation-duration: 2.8s;
+}
+
+@keyframes news-gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .news__text {
+    animation: none;
+    background-size: 100% 100%;
+  }
+}
 .news + .hero {
   padding-top: 0;
 }
@@ -860,6 +888,7 @@ a {
   overflow: hidden;
   border: 1px solid var(--line);
   background: var(--card);
+  aspect-ratio: 16 / 10;
 }
 
 .mockup__controls {
@@ -872,10 +901,8 @@ a {
 .mockup__img {
   display: block;
   width: 100%;
-  height: auto;
-  aspect-ratio: 16/15;
-  object-fit: contain;
-  background: rgba(255, 255, 255, 0.6);
+  height: 100%;
+  object-fit: cover;
   transition: opacity 220ms ease;
 }
 
@@ -1087,18 +1114,24 @@ a {
   .logo-slider {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+    justify-content: flex-start;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 6px;
   }
+  .logo-slider::-webkit-scrollbar { display: none; }
   .logo-slider__track {
     flex-wrap: nowrap;
-    gap: 22px;
+    gap: 36px;
     width: max-content;
-    scroll-snap-type: x mandatory;
     padding: 8px 6px;
   }
   .logo-slider__logo {
     width: clamp(180px, 72vw, 260px);
     height: auto;
     scroll-snap-align: center;
+    scroll-snap-stop: always;
     flex: 0 0 auto;
   }
 }
@@ -1107,18 +1140,24 @@ a {
   .logo-slider {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+    justify-content: flex-start;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 6px;
   }
+  .logo-slider::-webkit-scrollbar { display: none; }
   .logo-slider__track {
     flex-wrap: nowrap;
-    gap: 22px;
+    gap: 38px;
     width: max-content;
-    scroll-snap-type: x mandatory;
     padding: 8px 6px;
   }
   .logo-slider__logo {
     width: clamp(200px, 48vw, 300px);
     height: auto;
     scroll-snap-align: center;
+    scroll-snap-stop: always;
     flex: 0 0 auto;
   }
 }
@@ -1638,7 +1677,7 @@ a {
 
 .product__row {
   display: grid;
-  grid-template-columns: 1fr 190px;
+  grid-template-columns: 1fr 260px;
   gap: 14px;
   align-items: center;
 }
@@ -1650,16 +1689,16 @@ a {
 
 .product__media {
   width: 100%;
-  height: 140px;
   border-radius: 18px;
   border: 1px solid var(--line);
   background: var(--surface);
   overflow: hidden;
   align-self: center;
+  aspect-ratio: 4 / 3;
 }
 
 .product__media--tall {
-  height: 210px;
+  aspect-ratio: 4 / 3;
 }
 
 .product__img {
@@ -1668,11 +1707,6 @@ a {
   object-fit: cover;
   object-position: center;
   display: block;
-}
-
-.product__img--contain {
-  object-fit: contain;
-  background: var(--surface);
 }
 
 .product__checks {
@@ -1725,7 +1759,7 @@ a {
 }
 
 #prodotti .product__media {
-  height: 210px;
+  aspect-ratio: 4 / 3;
 }
 
 #prodotti .product__img {
@@ -1737,7 +1771,7 @@ a {
 }
 
 #prodotti .product__media--tall {
-  height: 315px;
+  aspect-ratio: 4 / 3;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -2250,10 +2284,10 @@ a {
     grid-template-columns: 1fr;
   }
   .product__media {
-    height: 220px;
+    aspect-ratio: 4 / 3;
   }
   .product__media--tall {
-    height: 330px;
+    aspect-ratio: 4 / 3;
   }
   .product__row {
     grid-template-columns: 1fr;
