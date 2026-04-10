@@ -2085,6 +2085,14 @@ body.theme-modal-open {
   gap: 8px;
 }
 
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 .field__label {
   font-size: 13px;
   color: var(--muted);

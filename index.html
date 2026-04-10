@@ -12,7 +12,7 @@
     <link rel="preload" as="image" href="./imgs/logos/pvrfacile-horizontal-red-light-theme-logo.png" />
     <link rel="preload" as="image" href="./imgs/logos/pvrfacile-horizontal-red-dark-theme-logo.png" />
     <link rel="stylesheet" href="./styles.css" />
-    <link rel="icon" type="image/x-icon" href="imgs/logos/pvrfacile-red-favicon.png">
+    <link rel="icon" type="image/x-icon" href="imgs/logos/pvrfacile-red-favicon-cerchio.ico">
   </head>
   <body>
     <a class="skip-link" href="#contenuto">Vai al contenuto</a>
@@ -542,7 +542,8 @@
               </div>
             </div>
             <div class="contact__form">
-              <form class="form" id="leadForm" novalidate>
+              <form class="form" id="leadForm" novalidate data-endpoint="./lead.php">
+                <input class="hp-field" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
                 <div class="form__row">
                   <label class="field">
                     <span class="field__label">Nome</span>
@@ -1125,6 +1126,11 @@
           const email = String(data.get("email") || "").trim();
           const desideri = String(data.get("desideri") || "").trim();
           const privacy = data.get("privacy") === "on";
+          const website = String(data.get("website") || "").trim();
+          if (website) {
+            form.reset();
+            return;
+          }
 
           let ok = true;
           if (!nome) {
@@ -1149,6 +1155,7 @@
           }
           if (!ok) return;
 
+          const endpoint = String(form.getAttribute("data-endpoint") || "").trim();
           const subject = encodeURIComponent("Richiesta informazioni — PVRFACILE");
           const body = encodeURIComponent(
             [
@@ -1171,11 +1178,46 @@
             result.hidden = false;
             result.classList.remove("form__result--error");
             result.classList.add("form__result--success");
-            result.textContent = "Richiesta pronta: si aprirà il tuo client email per inviare il messaggio.";
+            result.textContent = endpoint
+              ? "Invio richiesta in corso…"
+              : "Richiesta pronta: si aprirà il tuo client email per inviare il messaggio.";
           }
 
-          window.location.href = `mailto:info@pvrfacile.it?subject=${subject}&body=${body}`;
-          form.reset();
+          if (!endpoint) {
+            window.location.href = `mailto:info@pvrfacile.it?subject=${subject}&body=${body}`;
+            form.reset();
+            return;
+          }
+
+          const payload = new FormData();
+          payload.append("subject", "Richiesta informazioni — PVRFACILE");
+          payload.append("nome", nome);
+          payload.append("tipo_attivita", tipoAttivita);
+          payload.append("telefono", telefono);
+          payload.append("email", email);
+          payload.append("desideri", desideri);
+          payload.append("_replyto", email);
+          payload.append("privacy", privacy ? "1" : "0");
+
+          fetch(endpoint, { method: "POST", body: payload, headers: { Accept: "application/json" } })
+            .then(async (res) => {
+              if (!res.ok) throw new Error("bad_status");
+              if (result) {
+                result.classList.remove("form__result--error");
+                result.classList.add("form__result--success");
+                result.textContent = "Richiesta inviata correttamente. Ti ricontattiamo a breve.";
+              }
+              form.reset();
+            })
+            .catch(() => {
+              if (result) {
+                result.classList.remove("form__result--success");
+                result.classList.add("form__result--error");
+                result.textContent =
+                  "Invio non riuscito. Si aprirà il tuo client email come alternativa.";
+              }
+              window.location.href = `mailto:info@pvrfacile.it?subject=${subject}&body=${body}`;
+            });
         });
       }
     </script>

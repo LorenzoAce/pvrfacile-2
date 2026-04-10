@@ -1,0 +1,8 @@
+# secrets / deployment-only files
+/private/
+*.key
+*.key.txt
+
+# OS junk
+.DS_Store
+Thumbs.db

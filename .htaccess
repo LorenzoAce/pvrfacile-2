@@ -1,0 +1,22 @@
+Options -Indexes
+
+<IfModule mod_authz_core.c>
+  <FilesMatch "\.(key)$">
+    Require all denied
+  </FilesMatch>
+  <DirectoryMatch "(^|/)\.">
+    Require all denied
+  </DirectoryMatch>
+</IfModule>
+
+<IfModule !mod_authz_core.c>
+  <FilesMatch "\.(key)$">
+    Order allow,deny
+    Deny from all
+  </FilesMatch>
+  <DirectoryMatch "(^|/)\.">
+    Order allow,deny
+    Deny from all
+  </DirectoryMatch>
+</IfModule>
+
