@@ -329,7 +329,12 @@ a {
   position: relative;
   width: 12px;
   height: 12px;
-  border-radius: 999px;
+  min-width: 12px;
+  min-height: 12px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  flex: 0 0 12px;
+  display: inline-block;
   background: linear-gradient(135deg, var(--green-400), var(--green-500));
   box-shadow: 0 0 0 4px rgba(145, 227, 38, 0.12);
 }
@@ -349,6 +354,12 @@ a {
   }
   100% {
     box-shadow: 0 0 0 16px rgba(145, 227, 38, 0);
+  }
+}
+
+@media (max-width: 760px) {
+  .news__dot::after {
+    animation-duration: 1.3s;
   }
 }
 
